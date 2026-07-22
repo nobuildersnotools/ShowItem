@@ -45,7 +45,10 @@ public class VersionUtils {
 
         // Sets the server version if not set yet.
         final String versionString = Bukkit.getServer().getBukkitVersion().split("-")[0];
-        version = Integer.parseInt(versionString.split("\\.")[1]);
+        final String[] parts = versionString.split("\\.");
+
+        // Legacy "1.XX.Y" scheme (Minecraft 1.8 - 1.21) vs newer calendar-based "YY.R.P" scheme.
+        version = parts[0].equals("1") && parts.length > 1 ? Integer.parseInt(parts[1]) : Integer.parseInt(parts[0]);
         return version;
     }
 }

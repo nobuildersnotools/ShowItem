@@ -6,6 +6,7 @@ authors: [firewolf8385]
 description: Announce in chat what item a player is holding!
 depend: [PlaceholderAPI]
 softdepend: [BetterReload]
+folia-supported: true
 
 commands:
   showitem:
